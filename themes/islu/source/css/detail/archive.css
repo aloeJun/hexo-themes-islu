@@ -1,0 +1,130 @@
+.about-cover{height:110vh;background-image:url('/medias/banner/archives.jpg') !important;}
+    /*归档页自定义样式*/
+.archive-container{
+    padding: 20px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.archive:not(:last-child) {
+    margin-bottom: 3rem;
+}
+
+.archive .articles {
+    border-left: 1px solid #dbdbdb;
+}
+
+.archive .article {
+    border-top: none;
+    margin-left: -1px;
+    padding: 0.4rem 1.5rem;
+    border-left: 3px solid transparent;
+}
+
+.archive .article:hover {
+    transition: all .6s;
+    -webkit-transition: all .6s;
+    -o-transition: all .6s;
+    -moz-transition: all .6s;
+    border-left-color: #0f9d58 ;
+}
+
+.archive .article time {
+    font-size: 1rem;
+    color: deeppink;
+    /* color: darkgray; */
+}
+article-sort-item_title{
+    display: -webkit-box;
+    overflow: hidden;
+    height: 60px;
+    color: #4c4948;
+    font-size: .75rem;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -o-transition: all .3s;
+    -ms-transition: all .3s;
+    transition: all .3s;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.archive .article h6 {
+    margin: 0;
+}
+
+.archive .article h6 a {
+    line-height: 2.5;
+    color: inherit;
+    border-bottom: 1px dashed transparent;
+}
+
+.archive .article h6 a:hover {
+    border-bottom-color: #0f9d58;
+    padding-left: 16px;
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+    -moz-transition: all .5s;
+}
+
+.archive .articles .imgcontent{
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+}
+
+.archive .articles .imgcontent .postimg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.archive .articles .imgcontent .postimg:hover{
+    transform: scale(1.3);
+    transition: all .6s;
+    -webkit-transition: all .6s;
+    -o-transition: all .6s;
+    -moz-transition: all .6s;
+}
+.article-sort-post{
+    display: inline-block;
+    position: relative;
+    top: -16px;
+    left: 10px;
+}
+
+.hbe-input-container{
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+    margin: 100px auto;
+}
+
+.hbe-input-container  .btn-decrypt{
+    display: inline-block;
+    vertical-align: top;
+    width: 120px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #3f90ff;
+    text-align: center;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.desc-content{
+    padding: 0 50px;
+}
+@media only screen and (max-width: 601px) {
+    .desc-content {
+        padding: 0 15px;
+    }
+}
+
+.v .vlist .vcard {
+    padding-top: 2.5em !important;
+}

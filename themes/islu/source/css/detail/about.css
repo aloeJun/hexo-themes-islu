@@ -1,0 +1,255 @@
+/* about page styles. */
+.about-cover{height:110vh;background-image:url('/medias/banner/about.jpg') !important;}
+.nat{cursor:pointer;border-radius:50%;border:3px solid #fff;box-shadow:0 0 1px 1px rgba(0,0,0,.3);transition:all .5s}
+.nat:hover{border:3px solid #ff7f00}
+
+
+.about-container {
+    width: 90%;
+    max-width: 1225px;
+    margin-top: -60px;
+}
+
+@media only screen and (max-width: 601px) {
+    .about-container {
+        width: 95%;
+    }
+}
+
+.post-statis {
+    text-align: center;
+}
+
+.post-statis .statis {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    text-align: center;
+    letter-spacing: .03rem;
+}
+
+.post-statis .statis .count {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.post-statis .statis .count a {
+    color: #42b983;
+}
+
+.post-statis .statis .name {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+#aboutme .social-link {
+    margin: 0.5rem 0;
+    text-align: center;
+}
+
+#aboutme .social-link a {
+    display: inline-block;
+    width: 2.3rem;
+    height: 2.3rem;
+    line-height: 2.2rem;
+    margin: 0 0.5rem;
+    padding: 0;
+    color: #fff;
+    border: 1px solid #0f9d58;
+    background: radial-gradient(#4cbf30, #0f9d58);
+    font-size: 0.9rem;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .21), 0 2px 3px rgba(0, 0, 0, .1);
+}
+
+.profile .avatar-img {
+    max-width: 160px;
+    width: 100%;
+    margin: 0 auto;
+    transform: translate3d(0, -65%, 0);
+}
+
+.profile .author {
+    margin-top: -80px;
+}
+
+.profile .author .post-statis {
+    margin: 0.5rem 0 1.4rem 0;
+}
+
+.profile .author .title {
+    margin-bottom: 0.1rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #3C4858;
+}
+
+.profile .author .career {
+    margin: 8px 0;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #777;
+}
+
+#aboutme .profile .social-link {
+    margin: 1.5rem 0 0.8rem 0;
+}
+
+#aboutme .introduction {
+    margin: 1.5rem auto 3rem;
+    max-width: 600px;
+    color: #999;
+}
+
+.post-charts,
+.my-projects,
+.my-skills{
+    padding: 3.8rem 1.5rem 0.8rem 1.5rem;
+}
+
+.post-charts,
+.title,
+.my-projects .title,
+.my-skills .title,
+.my-gallery .title {
+    font-size: 2rem;
+    margin-bottom: 2.25rem;
+}
+
+.my-projects .info {
+    max-width: 360px;
+    margin: 0 auto;
+    padding: 1rem 0 1rem;
+}
+
+.my-projects .info .icon {
+    display: inline-block;
+    width: 76px;
+    height: 76px;
+    text-align: center;
+    line-height: 76px;
+    color: #fff;
+    font-size: 1.75rem;
+    border-radius: 50%;
+}
+
+.my-projects .info .info-title {
+    margin: 1.25rem 0 0.875rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.5em;
+}
+
+.my-projects .info .info-title a {
+    color: #34495e;
+}
+
+.my-projects .info .info-desc {
+    margin: 0 0 10px;
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.my-skills .skillbar {
+    position: relative;
+    display: block;
+    max-width: 360px;
+    margin: 15px auto;
+    background: #eee;
+    height: 30px;
+    border-radius: 35px;
+    -moz-border-radius: 35px;
+    -webkit-border-radius: 35px;
+    -webkit-transition: 0.4s linear;
+    -moz-transition: 0.4s linear;
+    -o-transition: 0.4s linear;
+    transition: 0.4s linear;
+    -webkit-transition-property: width, background-color;
+    -moz-transition-property: width, background-color;
+    -o-transition-property: width, background-color;
+    transition-property: width, background-color;
+}
+
+.skillbar .skillbar-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 110px;
+    font-size: 0.9rem;
+    color: #ffffff;
+    border-radius: 35px;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+}
+
+.skillbar .skillbar-title span {
+    display: block;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 0 20px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 35px;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+}
+
+.skillbar .skillbar-bar {
+    height: 30px;
+    width: 0;
+    border-radius: 35px;
+    -moz-border-radius: 35px;
+    -webkit-border-radius: 35px;
+}
+
+.skillbar .skill-bar-percent {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    color: #ffffff;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.my-skills .other-skills {
+    margin-top: 2rem;
+}
+
+.other-skills .sub-title {
+    font-size: 1.5rem;
+}
+
+.other-skills .tag-chips {
+    max-width: 600px;
+}
+
+.other-skills .chip {
+    background-color: #fff;
+    border: 1px solid #eee;
+}
+
+.other-skills .chip:hover {
+    color: #fff;
+    background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    border: 1px solid #4cbf30;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .25)
+}
+
+.my-gallery {
+    margin: 4.5rem auto 1rem;
+    padding: 0 1.2rem;
+    max-width: 1100px;
+}
+
+.my-gallery .photo {
+    margin: .5rem 0;
+}
+
+.my-gallery .photo img {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    cursor: pointer;
+}

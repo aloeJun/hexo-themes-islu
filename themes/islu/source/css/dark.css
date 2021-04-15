@@ -1,0 +1,94 @@
+/* 深色模式按钮设置 */
+#sma {
+    box-shadow: #aaa 2px 5px 10px;
+    background: #000;
+    width: 38px;
+    height: 38px;
+    display: block;
+    position: fixed;
+    border-radius: 50%;
+    right: 15px;
+    bottom: 100px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+    cursor: pointer;
+}
+
+#sma .fa-moon-o {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    font-size: 1.48rem !important;
+}
+
+#sma .fa-lightbulb {
+    position: absolute;
+    right: 11px;
+    bottom: 8px;
+    font-size: 1.5rem !important;
+}
+
+.fa-moon-o:before {
+    content: "\f186";
+}
+
+.fa-comments:before {
+    content: "\f086";
+}
+
+/* 深色模式设置 */
+.dark {
+    background-image: none
+}
+
+/* 暗色模式动态背景 */
+.dark #bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.dark #bg canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* 字体颜色变灰白色 */
+body.dark .fas, body.dark .title, body.dark .row .text, body.dark article .article-content .summary, body.dark .card .card-image .card-title,
+body.dark .fa-moon-o:before, body.dark .fa-lightbulb:before, body.dark article .article-tags .chip, body.dark .chip-container .tag-title,
+body.dark div.jqcloud a, body.dark .friends-container .tag-title, body.dark .frind-ship .title h1, body.dark .card .card-content p,
+body.dark .v[data-class=v] .vcount, body.dark .v[data-class=v] .vcount .vnum, body.dark pre code, body.dark h1, body.dark h2,
+body.dark h3, body.dark h4, body.dark h5, body.dark h6, body.dark li, body.dark p, body.dark header .side-nav .mobile-head .logo-name,
+body.dark header .side-nav .mobile-head .logo-desc, body.dark header .side-nav .menu-list a, body.dark .bg-cover .post-title,
+body.dark a body.dark table,body.dark .biaotis span,.dark tbody{
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* 背景颜色变灰色 */
+body.dark .card, body.dark .collapsible-header, body.dark table tr:nth-child(2n), body.dark thead, body.dark .block-with-text:after, body.dark .wxgzh {
+    background-color: #282c34;
+}
+
+/* 背景颜色变黑色 */
+body.dark, body.dark .v[data-class=v] .vcount, body.dark #rewardModal .modal-content, body.dark .modal, body.dark header .side-nav, body.dark header .side-nav .menu-list .m-nav-show {
+    background-color: #12121c;
+}
+
+/* 改变透明度 */
+body.dark .aplayer {
+    background: #2f3742 !important;
+}
+
+body.dark img, body.dark strong {
+    filter: brightness(.7);
+}
+
+
+/* 部分冲突修改 */

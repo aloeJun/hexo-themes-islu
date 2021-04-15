@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html lang="<%= config.language %>">
+<%- partial('_partial/head') %>
+<body>
+<% if (theme.loading.enable) { %>
+    <!--  加载动画，强制加载0.5s  -->
+    <%- partial('_partial/loading') %>
+<% } %>
+
+<%- partial('_partial/header') %>
+
+<%- body %>
+<!--是否开启暗黑模式-->
+<% if (theme.dark.enable) { %>
+    <div id="bg">
+        <canvas></canvas>
+        <canvas></canvas>
+        <canvas></canvas>
+    </div>
+    <script src="<%- theme.jsDelivr.url %><%- url_for('/js/dark.js') %>"></script>
+    <!--        同id="bg"为canva动画效果-->
+    <script src="<%- theme.jsDelivr.url %><%- url_for('/js/canva.js') %>"></script>
+<% } %>
+<!--footer-->
+<%- partial('_partial/footer') %>
+<!--search-->
+<%- partial('_partial/search') %>
+<%- partial('_partial/all-btn') %>
+
+<script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.materialize) %>"></script>
+<script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.masonry) %>"></script>
+<script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.aos) %>"></script>
+<script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.scrollProgress) %>"></script>
+<script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.lightgallery) %>"></script>
+<script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.islu) %>"></script>
+<script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.search) %>"></script>
+
+<!--谷歌广告接入点-->
+<% if (theme.guanggao.enable) { %>
+    <script data-ad-client="ca-pub-9875299461913117" async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<% } %>
+
+<%- partial('_partial/google-analytics') %>
+<%- partial('_partial/baidu-analytics') %>
+<%- partial('_partial/baidu-push') %>
+<% if (theme.clicklove.enable) { %>
+    <script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.clicklove) %>" async="async"></script>
+<% } %>
+
+<% if (theme.busuanziStatistics && theme.busuanziStatistics.enable) { %>
+    <script async src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.busuanzi) %>"></script>
+<% } %>
+
+<% if (theme.canvas_nest.enable) { %>
+    <script type="text/javascript" color="<%- theme.canvas_nest.color %>"
+            pointColor="<%- theme.canvas_nest.pointColor %>" opacity='<%- theme.canvas_nest.opacity %>'
+            zIndex="<%- theme.canvas_nest.zIndex %>" count="<%- theme.canvas_nest.count %>"
+            src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.canvas_nest) %>"></script>
+<% } %>
+
+<% if (theme.ribbon.enable) { %>
+    <% var ribbonSrc = theme.ribbon.clickChange ? theme.libs.js.ribbon : theme.libs.js.ribbonRefresh; %>
+    <script type="text/javascript" size="<%- theme.ribbon.size %>" alpha='<%- theme.ribbon.alpha %>'
+            zIndex="<%- theme.ribbon.zIndex %>" src="<%- theme.jsDelivr.url %><%- url_for(ribbonSrc) %>"
+            async="async"></script>
+<% } %>
+
+<% if (theme.ribbon_dynamic.enable) { %>
+    <script type="text/javascript" src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.ribbon_dynamic) %>"
+            async="async"></script>
+<% } %>
+
+<% if (theme.instantpage.enable) { %>
+    <script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.instantpage) %>" type="module"></script>
+<% } %>
+
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+<link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for('/css/detail/av.css') %>">
+<%- partial('_partial/bg-cover') %>
+<main class="content">
+    <div class="container">
+        <div class="card musis">
+<link rel="stylesheet" href="/libs/dplayer/DPlayer.min.css">
+<div class="video-player">
+    
+    <div class="title center-align">
+        <i class="fa fa-video-camera"></i>&nbsp;&nbsp;盛世中华
+    </div>
+    
+    <div class="row">
+        
+        <div class="col l8 offset-l2 m10 offset-m1 s12"> 
+            <div id="dplayer" class="dplayer-video"
+                    ></div>
+        </div>
+
+    </div>
+</div>
+
+<script src="/libs/dplayer/DPlayer.min.js"></script>
+<script>
+    $(function () {
+        new DPlayer({
+            container: document.getElementById('dplayer'),
+            autoplay: 'false' === 'true',
+            theme: '#42b983',
+            loop: 'true' === 'true',
+            lang: 'zh-CN' === 'zh-CN' ? 'zh-cn' : 'en',
+            preload: 'none',
+            volume: Number('1'),
+            video: {
+                url: 'https://jsmov2.a.yximgs.com/upic/2020/06/18/21/BMjAyMDA2MTgyMTQzNDRfMTc3MTUzMDUwN18zMDcyNTk4ODMwM18yXzM=_b_Bff62965761397a0972c2fee42e2b2af2.mp4',
+                pic: 'https://pic.downk.cc/item/5fe80b133ffa7d37b3a9ee41.png',
+                thumbnails: ''
+            }
+        });
+    });
+</script>
+        
+        <div class="musictitle center-align">
+            博主的歌单！
+        </div>
+        <hr>
+        <!-- 添加宝藏歌曲模块 -->
+        <div class="baozang">
+            <p><i style="border-bottom: 1px solid #ad7a86;">宝藏</i> 歌单</p>
+                
+            <link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for('/libs/aplayer/APlayer.min.css') %>">
+            <script src="<%- theme.jsDelivr.url %><%- url_for('/libs/aplayer/APlayer.min.js') %>"></script>
+            <!-- require MetingJS -->
+            <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+                <meting-js style="margin-top: 1.5rem;width: auto;height: auto;"
+                server="netease"
+                type="playlist"
+                id="5259443067"
+                order= "list"
+                theme="#ad7a86"
+                loop="all"
+                autoplay="false"
+                storageName="aplayer-setting"
+                hideLrc= "false"               
+                >
+                </meting-js>
+                <style>
+                    .aplayer{
+                        margin: 1.5rem 0;
+                    }
+                    ol li:before {
+                        display: none;
+                    }
+                    .card {
+                        padding: 24px;
+                    }
+                </style>
+            </div>
+
+            <!-- 添加网易云我喜欢的歌曲模块 -->
+            <div class="wyya">
+                <p><i style="border-bottom: 1px solid #ad7a86;">网易云音乐</i> 歌单</p>
+                    <meting-js style="margin-top: 1.5rem;width: auto;height: auto;"
+                    server="netease"
+                    type="playlist"
+                    id="988298337"
+                    order= "random"
+                    theme="#ad7a86"
+                    loop="all"
+                    autoplay="false"
+                    storageName="aplayer-setting"
+                    hideLrc= "false"
+                    >
+                    </meting-js>
+                    <style>
+                        .aplayer{
+                            margin: 1.5rem 0;
+                        }
+                        ol li:before {
+                            display: none;
+                        }
+                        
+                    </style>
+            </div>
+
+            <!-- 添加qq音乐我喜欢的歌曲模块 --> 
+            <div class="baozang">
+                    <p><i style="border-bottom: 1px solid #ad7a86;">QQ音乐</i> 歌单</p>
+                        <meting-js style="margin-top: 1.5rem;width: auto;height: auto;"
+                        server="tencent"
+                        type="playlist"
+                        id="3256527637"
+                        order= "list"
+                        theme="#ad7a86"
+                        loop="all"
+                        autoplay="false"
+                        storageName="aplayer-setting"
+                        hideLrc= "false"                      
+                        >
+                        </meting-js>
+                        <style>
+                            .aplayer{
+                                margin: 1.5rem 0;
+                            }
+                            ol li:before {
+                                display: none;
+                            }
+                            .card {
+                                padding: 24px;
+                            }
+                        </style>
+            </div>
+
+        <!-- 添加宝藏歌曲模块 -->
+        <div class="baozang">
+            <p><i style="border-bottom: 1px solid #ad7a86;">火影忍者</i> 歌单</p>
+                <meting-js style="margin-top: 1.5rem;width: auto;height: auto;"
+                server="netease"
+                type="playlist"
+                id="3177354342"
+                order= "list"
+                theme="#ad7a86"
+                loop="all"
+                autoplay="false"
+                storageName="aplayer-setting"
+                hideLrc= "false"               
+                >
+                </meting-js>
+                <style>
+                    .aplayer{
+                        margin: 1.5rem 0;
+                    }
+                    ol li:before {
+                        display: none;
+                    }
+                    .card {
+                        padding: 24px;
+                    }
+                </style>
+            </div>
+
+        </div>
+    </div>
+</main>
+<script type="text/javascript">
+//只在桌面版网页启用特效
+var windowWidth = $(window).width();
+if (windowWidth > 768) {
+    document.write('<script type="text/javascript" src="/js/Petal.js"><\/script>');
+}
+</script>

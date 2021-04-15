@@ -1,0 +1,119 @@
+<div class="bg-cover pd-header" style="background-image: url('https://files.islu.cn/banner/essay.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+                <div class="brand">
+                    <div class="title center-align">详情页</div>
+
+                    <div class="description center-align">
+                        <% if (theme.subtitle.enable) { %>
+                            <span id="subtitle"></span>
+                            <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+                            <script>
+                                var typed = new Typed("#subtitle", {
+                                    strings: [
+                                        <% theme.subtitle.sub.forEach(function(item){%>
+                                        "<%= item %>",
+                                        <% }) %>
+                                    ],
+                                    startDelay: <%= theme.subtitle.startDelay %>,
+                                    typeSpeed: <%= theme.subtitle.typeSpeed %>,
+                                    loop: <%= theme.subtitle.loop %>,
+                                    backSpeed: <%= theme.subtitle.backSpeed %>,
+                                    showCursor: <%= theme.subtitle.showCursor %>
+                                });
+                            </script>
+                        <% } else { %>
+                            <%= config.description %>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main class="content">
+    <%
+    var hashCode = function (str) {
+        if (!str && str.length === 0) {
+            return 0;
+        }
+
+        var hash = 0;
+        for (var i = 0, len = str.length; i < len; i++) {
+            hash = ((hash << 5) - hash) + str.charCodeAt(i);
+            hash |= 0;
+        }
+        return hash;
+    };
+    %>
+
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
+            <% page.posts.sort('date').reverse().forEach(post => { %>
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="<%- url_for(post.path) %>">
+                        <div class="card-image tag-image">
+                            <% if (post.img) { %>
+                            <img src="<%- url_for(post.img) %>" class="responsive-img" alt="<%= post.title %>">
+                            <% } else { %>
+                            <%
+                                var featureimg = theme.featureImages[Math.abs(hashCode(post.title) % theme.featureImages.length)];
+                            %>
+                            <img src="<%- theme.jsDelivr.url %><%- url_for(featureimg) %>" class="responsive-img" alt="<%= post.title %>">
+                            <% } %>
+                            <span class="card-title"><%= post.title %></span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            <% if (post.summary && post.summary.length > 0) { %>
+                                <%- post.summary %>
+                            <% } else { %>
+                                <%- strip_html(post.content).substring(0, 120) %>
+                            <% } %>
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i><%= date(post.date, config.date_format) %>
+                            </span>
+                            <span class="publish-author">
+                                <% if (post.categories && post.categories.length > 0) { %>
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                <% post.categories.forEach(category => { %>
+                                <a href="<%- url_for(category.path) %>" class="post-category">
+                                    <%- category.name %>
+                                </a>
+                                <% }); %>
+                                <% } else if (post.author && post.author.length > 0) { %>
+                                <i class="fas fa-user fa-fw"></i>
+                                <%- post.author %>
+                                <% } else { %>
+                                <i class="fas fa-user fa-fw"></i>
+                                <%- config.author %>
+                                <% } %>
+                            </span>
+                        </div>
+                    </div>
+
+                    <% if (post.tags && post.tags.length) { %>
+                    <div class="card-action article-tags">
+                        <% post.tags.forEach(tag => { %>
+                        <a href="<%- url_for(tag.path) %>">
+                            <span class="chip bg-color"><%= tag.name %></span>
+                        </a>
+                        <% }); %>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    </article>
+</main>
+
+<% if (page.total > 1) { %>
+<%- partial('_partial/paging') %>
+<% } %>

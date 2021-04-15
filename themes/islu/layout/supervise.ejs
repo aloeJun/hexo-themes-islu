@@ -1,0 +1,67 @@
+<link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for('/css/detail/supervise.css') %>">
+<%- partial('_partial/bg-cover') %>
+    <main class="content" style="min-height: 131px;">
+        <div class="container chip-container">
+            <div class="card">
+                <div class="card-content">
+                    <div class="tag-title center-align"><i class="fa fa-desktop"></i>&nbsp;&nbsp;友链状态监测</div>
+                    <div class="supervise_details">本页面是友情链接状态监控，展示了全部链接的当前运行状态。</div>
+                    <hr>
+                    <div class="panel panel-info">
+                        <div class="panel-heading">各友情链接当前状态</div>
+                        <div class="panel-body">
+                            <div id="panel-heading" class="alert alert-warning hide" role="alert">
+                                <b>当前状态：</b>部分友链发生异常，我们将尽快修复。
+                            </div>
+                            <div id="stattip-ok" class="alert alert-success hide" role="alert">
+                                <b>当前状态：</b>所有友链正常运行中，没有发现异常。
+                            </div>
+                            <div id="stattip-load" class="alert alert-info" role="alert">
+                                <b>当前状态：</b>正在检测运行状态，请稍候..
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover check">
+                                    <thead>
+                                    <tr id="server-title">
+                                    </tr>
+                                    </thead>
+                                    <tbody id="server-container"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="alert alert-info" style="text-align:center;margin-bottom:0">
+                            距离下次监测刷新时间:
+                            <span class="fa fa-refresh"></span> <span id="last-update"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script type="template/mustache" id="server-template">
+        <tr class="{{alert}}">
+            <td rowspan="2" class="sertitle">
+                <span class="card-panel {{label}}"><span class="fa fa-{{statusicon}}"style="padding-left: 2px;"></span> {{statustxt}}</span>
+                <span class="wname">{{friendlyname}}</span>
+            </td>
+            {{#charts}}
+            <td class="center">
+                <span class="status-{{uptype}} set-tooltip" data-toggle="tooltip" data-placement="top" title="{{uptime}}"><span class="fa fa-{{upsign}}"></span></span>
+            </td>
+            {{/charts}}
+        </tr>
+        <tr class="{{alert}} barl">
+            <td colspan="8" class="barls">
+                <div class="progress">
+                    {{#progress}}
+                    <div class="progress-bar progress-bar-{{types}} set-tooltip" style="width: {{len}}%" data-toggle="tooltip" data-placement="top" title="{{stattip}}"></div>
+                    {{/progress}}
+                </div>
+            </td>
+        </tr>
+    </script>
+    <script>function date(n,t){function e(n,t){return(n+="").length<t?new Array(++t-n.length).join("0")+n:n}var u=t?new Date(1e3*t):new Date,r=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],o={1:"st",2:"nd",3:"rd",21:"st",22:"nd",23:"rd",31:"st"},a=["","January","February","March","April","May","June","July","August","September","October","November","December"],i={d:function(){return e(i.j(),2)},D:function(){return i.l().substr(0,3)},j:function(){return u.getDate()},l:function(){return r[i.w()]},N:function(){return i.w()+1},S:function(){return o[i.j()]?o[i.j()]:"th"},w:function(){return u.getDay()},z:function(){return(u-new Date(u.getFullYear()+"/1/1"))/864e5>>0},W:function(){var n,t=i.z(),e=364+i.L()-t,r=(new Date(u.getFullYear()+"/1/1").getDay()||7)-1;return e<=2&&(u.getDay()||7)-1<=2-e?1:t<=2&&4<=r&&6-r<=t?(n=new Date(u.getFullYear()-1+"/12/31"),date("W",Math.round(n.getTime()/1e3))):1+(r<=3?(t+r)/7:(t-(7-r))/7)>>0},F:function(){return a[i.n()]},m:function(){return e(i.n(),2)},M:function(){return i.F().substr(0,3)},n:function(){return u.getMonth()+1},t:function(){var n;return 2==(n=u.getMonth()+1)?28+i.L():1&n&&n<8||!(1&n)&&7<n?31:30},L:function(){var n=i.Y();return 3&n||!(n%100)&&n%400?0:1},Y:function(){return u.getFullYear()},y:function(){return(u.getFullYear()+"").slice(2)},a:function(){return 11<u.getHours()?"pm":"am"},A:function(){return i.a().toUpperCase()},B:function(){var n=60*(u.getTimezoneOffset()+60),t=3600*u.getHours()+60*u.getMinutes()+u.getSeconds()+n,e=Math.floor(t/86.4);return 1e3<e&&(e-=1e3),e<0&&(e+=1e3),1==String(e).length&&(e="00"+e),2==String(e).length&&(e="0"+e),e},g:function(){return u.getHours()%12||12},G:function(){return u.getHours()},h:function(){return e(i.g(),2)},H:function(){return e(u.getHours(),2)},i:function(){return e(u.getMinutes(),2)},s:function(){return e(u.getSeconds(),2)},O:function(){var n=e(Math.abs(u.getTimezoneOffset()/60*100),4);return n=0<u.getTimezoneOffset()?"-"+n:"+"+n},P:function(){var n=i.O();return n.substr(0,3)+":"+n.substr(3,2)},c:function(){return i.Y()+"-"+i.m()+"-"+i.d()+"T"+i.h()+":"+i.i()+":"+i.s()+i.P()},U:function(){return Math.round(u.getTime()/1e3)}};return n.replace(/[\\]?([a-zA-Z])/g,function(n,t){return ret=n==t&&i[t]?i[t]():t,ret})}</script>
+    <script src="<%- theme.jsDelivr.url %><%- url_for('/js/mustache.min.js') %>"></script>
+    <script src="<%- theme.jsDelivr.url %><%- url_for('/js/uptimerobot.js') %>"></script>
+    <script src="<%- theme.jsDelivr.url %><%- url_for('/js/upscuits.js') %>"></script>
+    <script type="text/javascript">jQuery(document).ready(myApp.dashboard.init)</script>

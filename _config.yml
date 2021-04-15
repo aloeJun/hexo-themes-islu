@@ -1,0 +1,196 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: 闲花手札 | Lu's Blog   #这是网站标题
+subtitle: Welcome to Lu's Blog    #这是网站副标题subtitle
+# 下面两个description,keywords，需要填上，如果想让搜索引擎收录，这个做SEO优化必不可忽视的两个属性
+description: Lu's blog是一个记录生活,分享知识的个人博客。主要记录生活的点点滴滴,分享学习上的经验知识,以求在茫茫人海中留下些许足迹。  #网站描述
+keywords: [闲花手札,卢慧军,Lu,Java,web网站,经验分享,hexo,个人博客,生活记录等]  #网站的关键词
+author: 闲花手札  #作者，文章版权所显示的
+language: zh-CN  #网站语言，不填写，默认为英文
+timezone: #时区，可以不填写
+
+# URL
+## 在这里设置你的网站url。例如，如果你使用GitHub页面，设置url为“https://username.github.io/project”
+url: https://www.islu.cn
+permalink: posts/:abbrlink.html
+permalink_defaults:
+pretty_urls:
+  trailing_index: true # 设为false可从永久链接中删除末尾的'index.html'
+  trailing_html: true # 设置为false可以从永久链接中删除末尾的'.html'
+
+# Directory 目录
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+
+# 忽略文件的构建(此处文件不会因为构建而消失)
+skip_render:
+  - CNAME
+
+# Writing
+new_post_name: :title.md # 新帖的文件名
+default_layout: post
+titlecase: false # 转换title到titlecase
+external_link:
+  enable: true # 在新选项卡中打开外部链接
+  field: site # 适用范围(site:整个网站)
+  exclude: ''
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+
+# 高亮《已经帮你配置好了》
+highlight:
+  enable: false
+  line_number: true
+  auto_detect: false
+  tab_replace: ''
+  wrap: true
+  hljs: false
+prismjs:
+  enable: true
+  preprocess: true
+  line_number: true
+  tab_replace: ''
+
+# 主页设置
+index_generator:
+  path: '' # 路径:博客索引页的根路径。(默认='')
+  per_page: 12 # 每页显示帖子的数量(0 = 禁用分页)
+  order_by: -date # 文章的顺序。(默认按日期降序排列)
+
+# 分类和标签的设置
+default_category: uncategorized # 未分类
+category_map:
+tag_map:
+
+# 数据元素《head 中 meta》
+## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+meta_generator: true
+
+# 时间日期格式
+# Hexo使用Moment.js来解析和显示日期
+# 可以自定义时间格式《建议不要改》
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD # 默认日期格式 年-月-日
+time_format: HH:mm:ss # 默认时间格式 时:分:秒
+## 更新选项支持 'mtime', 'date', 'empty'
+updated_option: 'mtime'
+
+# 分页
+per_page: 12 # 将per_page设置为0以禁用分页
+pagination_dir: page
+
+# 包含/排除文件
+## include:/exclude:选项只适用于“source/”文件夹
+include:
+exclude:
+ignore:
+
+# 扩充
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: islu
+
+# Deployment
+## Docs: https://hexo.io/docs/one-command-deployment
+deploy:
+  - type: git
+    repo: git@github.com:username/username.git # 此处为共有仓库名
+    branch: master
+#  - type: baidu_url_submitter # 若开启百度主动提交则可取消注释
+
+
+# 搜索插件 npm install hexo-generator-search --save
+search:
+  enable: true
+  path: search.xml
+  field: post
+
+# 添加emoji表情支持 npm install hexo-filter-github-emojis --save
+githubEmojis:
+  enable: true
+  className: github-emoji
+  inject: true
+  styles:
+  customEmojis:
+
+#hexo-neat 优化提速插件（去掉HTML、css、js的blank字符） npm install hexo-neat --save
+neat_enable: true
+neat_html:
+  enable: true
+  exclude:
+    - '**/*.md'
+neat_css:
+  enable: true
+  exclude:
+    - '**/*.min.css'
+neat_js:
+  enable: true
+  mangle: true
+  output:
+  compress:
+  exclude:
+    - '**/*.min.js'
+    - '**/**/instantpage.js'
+    - '**/islu.js'
+
+# 固定文章地址插件  hexo-abbrlink config
+abbrlink:
+  alg: crc16  #算法选项：crc16、crc32，区别见之前的文章，这里默认为crc16丨crc32比crc16复杂一点，长一点
+  rep: dec    #输出进制：十进制和十六进制，默认为10进制。丨dec为十进制，hex为十六进制
+
+# 图片懒加载   npm install hexo-lazyload-image --save
+lazyload:
+  enable: true
+  onlypost: true  # 是否只对文章的图片做懒加载
+  loadingImg: ./medias/detail/load.gif # eg ./images/loading.gif
+
+# hexo-baidu-url-submit  百度主动推送
+baidu_url_submit:
+  count: 80 # 提交最新的一个链接
+  host: www.islu.cn # 在百度站长平台中注册的域名
+  token:  # 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!
+  path: baidu_urls.txt # 文本文档的地址， 新链接会保存在此文本文档里
+
+# 看板娘
+## 默认支持tororo(白色猫咪)
+live2d:
+    enable: true # 是否开启看板娘
+    scriptFrom: local
+    pluginRootPath: live2dw/
+    pluginJsPath: lib/
+    pluginModelPath: assets/
+    tagMode: false
+    log: false
+    model:
+        use: live2d-widget-model-tororo # 模型名称
+    display:
+        superSample: 2 # 超采样等级
+        position: right # 显示位置：左或右
+        width: 150 # 显示模型的canvas画布的宽度
+        height: 300 # 显示模型的canvas画布的高度
+        hOffset: 75 # canvas画布的水平偏移量
+        vOffset: -20 # canvas画布的垂直偏移量
+    mobile:
+        show: true # 是否在移动设备上显示
+        scale: 0.5 # 移动设备上的缩放
+    react:
+        opacity: 0.7 # 透明度
+    name:
+        canvas: 'live2dcanvas' # canvas元素的ID
+        div: 'live2d-widget' # div元素的ID
+    dev:
+        border: false # 是否在canvas画布周围显示边框
+    dialog:
+        enable: false # 显示人物对话框
+        hitokoto: false # 使用一言API

@@ -1,0 +1,109 @@
+<% var orderBy =  'name' ;  %>
+<% function render_categories(cats, depth) { %>
+    <% depth = depth || 0 %>
+
+    <% return cats.each(function(cat){ %>
+        <% var subCats = site.categories.find({parent: cat._id}).sort(orderBy).filter(cat => cat.length) %>
+        <% var collapsed = subCats.length === 0 %>
+
+        <li  class="<%= subCats.length > 0 ? 'active' : '' %>" >
+            <div class="<%= depth <= 0 ? 'category-row' : 'category-row category-sub' %>  row collapsible-header">
+                <a
+                        class=" <%= depth <= 0 ? 'category-item' : 'category-subitem' %> <%= subCats.length > 0 ? '' : 'collapsed' %> list-group-item category-item-action col s10 m9"
+                        id="heading-<%= cat._id %>"
+                >
+                    📚 <%= cat.name %>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                <a href="<%= url_for(cat.path) %>" class="category-count col s2 m3">
+                    <i class="fa fa-list"></i>
+                    <span><%= cat.posts.length %></span>
+                </a>
+
+            </div>
+
+            <% if (subCats.length > 0) { %>
+                <div class="category-content collapsible-body">
+                    <%- render_sub_categories(subCats, cat, depth + 1) %>
+
+                </div>
+
+            <% } else { %>
+                <%- render_posts(cat) %>
+            <% } %>
+
+        </li>
+    <% }) %>
+<% } %>
+
+<% function render_sub_categories(cats, parent, depth) { %>
+
+
+    <ul class="collapsible category-row"  data-collapsible="expandable">
+        <%- render_categories(cats, depth) %>
+    </ul>
+
+
+<% } %>
+
+<% function render_posts(cat) { %>
+    <div id="collapse-<%= cat._id %>" class="category-content collapsible-body" >
+        <% var limit = 20 ; %>
+        <% var posts = cat.posts.sort(config.index_generator.order_by || '-date') %>
+        <% for (var idx = 0; idx < posts.length; idx++) { %>
+            <% var post = posts.data[idx] %>
+            <% if (idx && limit && idx >= limit) { %>
+                <a href="<%- url_for(cat.path) %>" class="list-group-item list-group-item-action">
+                    <span class="category-post">More...</span>
+                </a>
+                <% break %>
+            <% } else { %>
+                <a href="<%- url_for(post.path) %>" class=" list-group-item list-group-item-action">
+                    <span class="category-post"><%= post.title %></span>
+                </a>
+            <% } %>
+        <% } %>
+    </div>
+<% } %>
+
+
+
+    <div class=" card-categories-list-spcail">
+
+        <div class="card-content col s12  m12">
+            <div  id="card-list-zzy" class="container ">
+                <ul class="category-list collapsible "  data-collapsible="expandable">
+                    <% cats = site.categories.find({parent: {$exists: false}}).sort(orderBy).filter(cat => cat.length) %>
+                    <%- render_categories(cats) %>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+<script>
+
+    $('.list-group-item').click(function(){
+        var id = $(this).attr('href');
+        if($(this).hasClass('collapsed')){
+            $(this).removeClass('collapsed');
+            $(this).attr("aria-expanded",true);
+        }else{
+            $(this).addClass('collapsed');
+            $(this).attr("aria-expanded",false);
+        }
+        var val = $(id).css('display');
+        if(val == 'block'){
+            //$(id).hide();
+            //$(id).slideUp();
+        }else{
+            //$(id).show();
+            //$(id).slideDown();
+        }
+
+    });
+
+
+    $(document).ready(function(){
+        $('.collapsible').collapsible();
+    });
+</script>

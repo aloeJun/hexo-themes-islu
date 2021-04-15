@@ -1,0 +1,132 @@
+.Hotpink{
+    color: Hotpink;
+}
+.bg-cover{
+    background-image: url('/medias/banner/rewardModal.jpg') !important;
+}
+@media only screen and (max-width:800px) {
+    .swbk {
+        padding: 26px 2px!important;
+        margin: 14px 0!important
+    }
+}
+
+.swbk {
+    position: relative;
+    padding: 26px 20px;
+    font-style: italic;
+    margin: 10px 0;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.08),0 3px 8px rgba(0,0,0,.06);
+    box-shadow: 0 14px 38px rgba(0,0,0,.08),0 3px 8px rgba(0,0,0,.06);
+    -webkit-transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+    transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+    transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+    transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s
+}
+
+.swbk:hover {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+    -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.14),0 3px 8px rgba(0,0,0,.12);
+    box-shadow: 0 14px 38px rgba(0,0,0,.14),0 3px 8px rgba(0,0,0,.12)
+}
+
+.ziwojieshao .swbk:after,.ziwojieshao .swbk:before {
+    display: none
+}
+
+body.dark .swbk:after,body.dark .swbk:before {
+    color: #d2c9c9
+}
+
+.swbk p {
+    font-size: 19px!important;
+    line-height: 2rem;
+    text-indent: 2rem;
+    font-style: italic
+}
+
+.swbk .label {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 10px;
+    padding: 0 14px 0 32px;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 0 3px 3px 0;
+    background-color: currentColor
+}
+
+.swbk .label span {
+    color: #fff;
+    font-size: 20px
+}
+
+.swbk .label:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 0;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 0 16px 16px 0;
+    border-color: transparent;
+    border-right-color: currentColor;
+    -webkit-filter: brightness(120%);
+    filter: brightness(120%)
+}
+
+@media screen and (min-width:768px) {
+    .swbk .label {
+        left: -37px
+    }
+}
+
+@media screen and (max-width:767px) {
+    .swbk .label {
+        left: -18px
+    }
+
+    .swbk p {
+        line-height: 2.02rem;
+        padding: 2px 10px
+    }
+}
+/**/
+
+ .xiangjipicss {
+     margin-top: 16px;
+ }
+.xiangjipic {
+    width: 240px;
+    vertical-align: middle;
+    padding: 8px;
+    border-radius: 14px;
+    display: inline-block;
+    margin: 2px 50px;
+}
+@media only screen and (max-width: 770px) {
+    .xiangjipic {
+        display: list-item;
+        margin: 2px auto;
+        width: 310px;
+    }
+}
+@media only screen and (max-width: 380px) {
+    .xiangjipic {
+        width: 270px;
+    }
+}
+@media only screen and (max-width: 361px) {
+    .xiangjipic {
+        width: 222px;
+    }
+}
+@media only screen and (min-width: 1000px) and (max-width: 1130px) {
+    .xiangjipic {
+        margin: 2px 20px;
+    }
+}

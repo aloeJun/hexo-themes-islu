@@ -1,0 +1,73 @@
+<%- partial('_partial/bg-cover') %>
+<link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for('/css/detail/categories.css') %>">
+<main class="content">
+    <div class="container categories-container">
+        <div class="card">
+            <div class="card-content">
+                <div class="categories-title">
+                    <i class="fas fa-bookmark"></i>&nbsp;&nbsp;<%= __('postCategoryTitle') %>
+                </div>
+            </div>
+            <div class="card categories-btn">
+                <div class="card-content">
+                    <div class="categories-chips">
+                        <span onclick="showCategoryRadar()" id="categoryRadar" class="chip_btn center-align waves-effect waves-light default" data-tagname="文章分类图" style="background:linear-gradient(to right,#4cbf30 0,#0f9d58 100%);color:#fff">文章分类图 </span>
+                        <span onclick="showCategoryClouCd()" id="categoryCloud" class="chip_btn center-align waves-effect waves-light default" data-tagname="总分类" style="background-color:#f9ebea">总分类</span>
+                        <span onclick="showCategoryList()" id="categoryList" class="chip_btn center-align waves-effect waves-light default" data-tagname="二级分类" style="background-color:#f9ebea">二级分类</span>
+                    </div>
+                </div>
+            </div>
+            <div id="radar">
+                <%- partial('_widget/post-charts') %>
+                <% if (site.categories && site.categories.length > 0) { %>
+                    <%- partial('_widget/category-radar') %>
+                <% } %>
+            </div>
+            <div id="cloud">
+                <%- partial('_widget/category-cloud') %>
+            </div>
+            <div id="list">
+                <%- partial('_widget/category-list') %>
+            </div>
+
+        </div>
+    </div>
+</main>
+<script>
+    function showCategoryRadar() {
+        $("#radar").show();
+        $("#cloud").hide();
+        $("#list").hide();
+        $("#categoryRadar").css('background', 'linear-gradient(to right, #4cbf30 0%, #0f9d58 100%)');
+        $("#categoryRadar").css('color', '#fff');
+        $("#categoryCloud").css('background', '#F9EBEA')
+        $("#categoryCloud").css('color', 'rgba(0,0,0,0.6)');
+        $("#categoryList").css('background', '#F9EBEA')
+        $("#categoryList").css('color', 'rgba(0,0,0,0.6)');
+    }
+
+    function showCategoryClouCd() {
+        $("#cloud").show();
+        $("#radar").hide();
+        $("#list").hide();
+        $("#categoryCloud").css('background', 'linear-gradient(to right, #4cbf30 0%, #0f9d58 100%)');
+        $("#categoryCloud").css('color', '#fff');
+        $("#categoryRadar").css('background', '#F9EBEA')
+        $("#categoryRadar").css('color', 'rgba(0,0,0,0.6)');
+        $("#categoryList").css('background', '#F9EBEA')
+        $("#categoryList").css('color', 'rgba(0,0,0,0.6)');
+    }
+    function showCategoryList() {
+        $("#list").show();
+        $("#radar").hide();
+        $("#cloud").hide();
+        $("#categoryList").css('background', 'linear-gradient(to right, #4cbf30 0%, #0f9d58 100%)');
+        $("#categoryList").css('color', '#fff');
+        $("#categoryRadar").css('background', '#F9EBEA')
+        $("#categoryRadar").css('color', 'rgba(0,0,0,0.6)');
+        $("#categoryCloud").css('background', '#F9EBEA')
+        $("#categoryCloud").css('color', 'rgba(0,0,0,0.6)');
+    }
+
+
+</script>

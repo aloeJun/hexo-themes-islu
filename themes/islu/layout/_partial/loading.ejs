@@ -1,0 +1,25 @@
+<div id="loading-container">
+    <p class="loading-text">嘘 ~ 正在从服务器偷取页面 . . . </p>
+    <div class="loading-image">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<script>
+    (function () {
+        const loaded = function () {
+            setTimeout(function () {
+                const loader = document.getElementById("loading-container");
+                loader.className = "fadeout";
+                setTimeout(function () {
+                    loader.style.display = "none";
+                }, 500);
+            }, <%- theme.loading.time %>);
+        };
+        loaded();
+    })();
+</script>

@@ -1,0 +1,340 @@
+.bg-cover {
+    background-image: url("/medias/banner/time.jpg")!important;
+}
+/*开始*/
+.task-input{width:99%;height:30px;outline:0;border:1px solid #ccc;border-radius: 6px;}
+.task-count{display:flex;margin:10px 0}
+.task-count li{padding-left:10px;flex:1;color:#dd4b39}
+.task-count li:nth-child(1){padding:5px 0 0 10px}
+.action{text-align:center;display:flex}
+.action a{margin:0 10px;flex:1;padding:5px 0;color:#777}
+.action a:nth-child(3){margin-right:0}
+.active{border-bottom: 2px solid #629A9C}
+.no-task-tip{padding:10px 0 10px 10px;display:block;border-bottom:1px solid #ededed;color:#777}
+.big-title{
+    color:#333;
+    font-family: "Linux Biolinum", "Noto Serif SC", Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
+.todo-list{margin:0;padding:0;list-style:none}
+.todo-list li{
+    position:relative;
+    font-size:16px;
+    background: rgba(0,0,0,0.04);
+    border-left: 5px solid #629A9C;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+    margin-bottom: 16px;
+}
+.todo-list li:hover{background-color:#fafafa}
+.todo-list li.editing{border-bottom:0;padding:0;}
+.todo-list li.editing .edit{display:block;padding:13px 17px 12px 17px;margin:0 0 0 43px}
+.todo-list li.editing .view{display:none}
+.toggle{
+    text-align:center;
+    width:16px;
+    height:16px;
+    position:absolute;
+    top:2px;
+    left: 15px;
+    bottom:0;
+    margin:auto 0;
+    cursor: pointer;
+}
+.todo-list li label{
+    white-space:pre-line;
+    word-break:break-all;
+    padding:15px 60px 15px 15px;
+    margin-left:45px;
+    display:block;
+    line-height:1.2;
+    transition:color .4s
+}
+.todo-list li.completed label{
+    color:#d9d9d9;
+    text-decoration:line-through
+}
+.todo-list li .destroy{
+    display:none;
+    text-align:center;
+    width:16px;
+    height:16px;
+    position:absolute;
+    top:0;
+    right:15px;
+    bottom:10px;
+    margin:auto 0;
+    cursor: pointer;
+    font-size:28px;
+    color:#cc9a9a;
+    transition:color .2s ease-out
+}
+.todo-list li .destroy:hover{color:#af5b5e}
+.todo-list li .destroy:after{content:'×'}
+.todo-list li:hover .destroy{display:block}
+.todo-list li .edit{display:none;border: 1px solid rgba(0,0,0,0.09);width: 100%;}
+.todo-list li.editing:last-child{margin-bottom:-1px}
+.fanhuizhuye {
+    display: inline-block;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    color: #fafafa;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.note.info {
+    background-color: #eef7fa;
+    border-left-color: #428bca;
+    font-size: 1rem;
+    color: #969696;
+    /* font-family: 'Architects Daughter', cursive!important; */
+}
+.note {
+    position: relative;
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: initial;
+    border-left: 3px solid #eee;
+    background-color: #f9f9f9;
+    border-radius: 3px;
+    line-height: 20px;
+}
+.fabutime {
+    position: absolute;
+    top: 15px;
+    right: 100px;
+    bottom: 0;
+}
+/* .todo-list li:nth-of-type(1) .destroy, .todo-list li:nth-of-type(1) .edit {
+    display: none;
+} */
+.daodile {
+    width:70%;margin:0 auto;box-sizing:border-box;margin-bottom: 30px;
+    text-align: center;
+    font-family: 'Architects Daughter', cursive!important;
+    color: #969696;
+    font-size: 1.05rem;
+}
+/*结束*/
+.card-content {
+    padding: 12px!important;
+}
+hr {
+    margin: 8px auto 12px;
+}
+.miaoshus {
+    padding: 12px;
+    border: 1px dashed #e6e6e6;
+    color: #969696;
+    position: relative;
+    display: inline-block;
+    width: 95%;
+    background: #fbfbfb50;
+    border-radius: 10px;
+    font-size: 16px;
+    margin: 12px auto;
+}
+body.dark .miaoshus {
+    background: 0 0;
+    border: 1px dashed #888;
+}
+.wrap p {
+    font-family: 'Architects Daughter', cursive!important;
+    font-size: 18px!important;
+    margin: 15px auto!important;
+}
+.im0now {
+    color: #e96900;
+    font-size: 20px!important;
+}
+.HotDate {
+    color: #e96900;
+    font-size: 26px;
+    font-weight: 400;
+    text-align: center;
+    padding-bottom: 20px;
+}
+.biaotis {
+    margin: 10px auto;
+    text-align: center;
+}
+.biaotis span {
+    font-family: 'Architects Daughter', cursive;
+    font-size: 19px;
+    margin: 15px auto;
+    padding-bottom: 6px;
+}
+body.dark .biaotis span {
+    color: rgba(255, 255, 255, 0.6);
+}
+.biaotis .zhuti {
+
+    border-bottom: 2px solid #e96900;
+}
+.dy {
+    text-align: center;
+    margin: 50px 0 20px 0;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.de {
+    width: 100%;
+
+}
+
+.de>div {
+    width: 90%;
+    margin: 0 auto;
+
+}
+
+.dyy,
+.dss {
+    width: 15%;
+    height: 20px;
+    float: left;
+    text-align: center;
+    padding: 5px 0;
+    margin: 10px 0;
+
+}
+
+.dee {
+    width: 70%;
+    height: 20px;
+    float: left;
+    text-align: center;
+    padding: 5px 0px;
+    margin: 10px 0;
+
+}
+
+.dee .jdt {
+    text-align: left;
+    background: RGB(244, 245, 249);
+    border-radius: 15px;
+    position: relative;
+    top: 2px;
+
+}
+
+.dee .jdt .jdt_son {
+    height: 100%;
+    width: 0%;
+    border-radius: 15px;
+
+}
+
+.jt .dee .jdt .jdt_son {
+    background: #32B4FF;
+}
+
+.bz .dee .jdt .jdt_son {
+    background: #F54170;
+}
+
+.by .dee .jdt .jdt_son {
+    background: #FECE14;
+}
+
+.jn .dee .jdt .jdt_son {
+    background: #31DB83;
+}
+
+.cs .dee .jdt .jdt_son {
+    background: #9749DD;
+}
+.jzb{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 35px 0 10px 0;
+}
+
+.clock {
+    min-width: 250px;
+    width: 250px;
+    height: 250px;
+    background-color: white;
+    border: 15px solid white;
+    border-radius: 50%;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1),
+    0 10px 10px rgba(0, 0, 0, 0.3), 0 0 0 4px white;
+    background-image: url("https://files.islu.cn/detail/clock.png");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.clock::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    z-index: 999;
+    background-color: rgb(58, 58, 58);
+    border-radius: 50%;
+}
+.hour,
+.min,
+.sec {
+    position: absolute;
+}
+.hour,
+.hr {
+    width: 130px;
+    height: 130px;
+}
+.min,
+.mn {
+    width: 160px;
+    height: 160px;
+}
+.sec,
+.sc {
+    width: 200px;
+    height: 200px;
+}
+.hr,
+.mn,
+.sc {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+}
+.hr::before {
+    width: 5px;
+    height: 60px;
+    background-color: rgba(219, 0, 0, 0.808);
+    content: "";
+    border-radius: 6px 6px 0 0;
+}
+.mn::before {
+    width: 3px;
+    height: 80px;
+    background-color: rgb(0, 235, 125);
+    content: "";
+    border-radius: 6px 6px 0 0;
+}
+.sc::before {
+    width: 3px;
+    height: 120px;
+    background-color: rgb(0, 170, 248);
+    content: "";
+    border-radius: 6px;
+}
+.sc {
+    transition: linear 1s;
+}
+.mn {
+    transition: linear 0.1s;
+}
+.hr {
+    transition: linear 0.1s;
+}

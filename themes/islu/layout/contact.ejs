@@ -1,0 +1,119 @@
+<link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for('/css/detail/contact.css') %>">
+<%- partial('_partial/bg-cover') %>
+<main class="content">
+    <div id="contact" class="container chip-container">
+        <div class="card swbk">
+			<div class="label" style="color:red">
+				<span>欢迎大佬们来到小站~</span>
+			</div>
+			<div class="card-content">
+				<div class="tag-title center-align">
+					📢&nbsp;&nbsp; 留言簿
+				</div>
+				<div class="poem-wrap">
+					<div class="poem-border poem-left"></div>
+					<div class="poem-border poem-right"></div>
+					<h1>热评</h1>
+					<p id="poem">忘掉生日，忘掉青涩的诗，忘掉他不厌其烦夜夜追逐他影子。</p>
+					<p id="info">邱意 · 《 菱形月亮 》</p>
+				</div>
+				<script>
+					$.get("https://v1.hitokoto.cn?c=d&c=h&c=j",function(o,t){"success"==t?($("#poem").html(o.hitokoto),null!=o.from_who?$("#info").html(o.from_who+" · 《 "+o.from+" 》"):$("#info").html(" “ "+o.from+" ” ")):$("#poem").html("获取出错啦")})
+				</script>
+				<div id="computer">
+					<div id="maincontent"><br>
+						<div id="form-wrap"><img src="https://cdn.jsdelivr.net/gh/Akilarlxh/Valine-Admin@v1.0/source/img/before.png" id="beforeimg">
+							<div id="envelope">
+								<form>
+									<div class="formmain">
+										<img class="headerimg" src="https://ae01.alicdn.com/kf/U5bb04af32be544c4b41206d9a42fcacfd.jpg"/>
+										<div style="padding: 5px 20px;">
+											<center>
+												<h3 calss="title3">来自闲花手札的留言:</h3>
+											</center>
+											<center class="comments">
+												有什么想问的？<br>
+												有什么想说的？<br>
+												有什么想吐槽的？<br>
+												哪怕是有什么想吃的，都可以告诉我哦~<br>
+											</center>
+											<div class="bottomcontent">
+												<img class="bottomimg" src="https://ae01.alicdn.com/kf/U0968ee80fd5c4f05a02bdda9709b041eE.png"/>
+											</div>
+											<p class="bottomhr">自动书记人偶竭诚为您服务！</p>
+										</div>
+									</div>
+								</form>
+							</div><img id="afterimg" src="https://cdn.jsdelivr.net/gh/Akilarlxh/Valine-Admin@v1.0/source/img/after.png">
+						</div>
+					</div>
+				</div>
+				<div id="mobile">
+					<form>
+						<div class="formmain"><img class="headerimg" src="https://ae01.alicdn.com/kf/U5bb04af32be544c4b41206d9a42fcacfd.jpg" />
+							<div style="padding: 5px 20px;">
+								<center>
+									<h3 class="title3">来自闲花手札的留言:</h3>
+								</center>
+								<center class="comments">
+									有什么想问的？<br>
+									有什么想说的？<br>
+									有什么想吐槽的？<br>
+									哪怕是有什么想吃的，都可以告诉我哦~<br>
+								</center>
+								<div class="bottomcontent"><img src="https://ae01.alicdn.com/kf/U0968ee80fd5c4f05a02bdda9709b041eE.png" class="bottomhr"></div>
+								<p class="bottomhr"">自动书记人偶竭诚为您服务！</p>
+							</div>
+						</div>
+					</form>
+				</div>
+
+				<div class="swbk">
+					<div class="label" style="color:#4af815">
+						<span>申请友链须知</span>
+					</div>
+					<ul>
+						<li>1、本站与技术类写作类、生活类、情感类、兴趣类等各类博客互换友链，且具有原创高质量文章、经常更新的站优先。</li>
+						<li>2、不与含有色情、暴力、政治敏感或其他法律法规禁止的网站互换。</li>
+						<li>3、申请链接前请先添加本博链接，通过本友链页面留言或邮件告知。</li>
+						<li>4、请提供网站名称、网站链接、网站描述（12字以内）、网站图标或头像。</li>
+						<li>5、本站会定期对所有友链进行检查，如果发现一月内不能访问或者六个月内没有内容更新可能会取消该友链。</li>
+						<li>6、友链格式参考下列资料</li>
+					</ul>
+				</div>
+				<hr>
+				<div class="swbk">
+					<div class="label" style="color:#4af815">
+						<span style="color:#fff">我的博客资料</span>
+					</div>
+					<p>
+						<strong>Matery版</strong>
+					</p>
+					<pre class="language-txt"><code class="language-txt">{ "avatar": "https://images.islu.cn/avatar.jpg",
+  "name": "闲花手札",
+  "introduction": "不断学习的00后小站博主的经历.",
+  "url": "https://www.islu.cn",
+  "title": "前去观摩"
+}</code></pre>
+					<p>
+						<strong>非matery版</strong>
+					</p>
+					<pre class="language-txt"><code class="language-txt copy">博客头像: https://images.islu.cn/avatar.jpg
+博客名称: 闲花手札
+博客描述: 不断学习的00后小站博主的经历.
+博客地址: https://islu.cn
+可选标题: 访问主页</code></pre>
+					<p>
+						<strong>MD5加密邮箱</strong>
+					</p>
+					<pre class="language-txt"><code class="language-txt">de8a7aa53d07e6b6bceb45c64027763d</code></pre>
+				</div>
+			</div>
+		</div>
+        <div class="card">
+            <% if (theme.valine && theme.valine.enable) { %>
+            	<%- partial('_partial/valine') %>
+            <% } %>
+        </div>
+    </div>
+</main>

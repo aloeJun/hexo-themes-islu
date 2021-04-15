@@ -1,0 +1,278 @@
+/* Here is your custom css styles. */
+/*首页箭头样式*/
+ #scroll-down {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    cursor: pointer;
+}
+#scroll-down .scroll-down-effects {
+    position: relative;
+    width: 100%;
+    font-size: 30px;
+}
+.scroll-down-effects {
+    -webkit-animation: scroll-down-effect 1.5s infinite;
+    -moz-animation: scroll-down-effect 1.5s infinite;
+    -o-animation: scroll-down-effect 1.5s infinite;
+    -ms-animation: scroll-down-effect 1.5s infinite;
+    animation: scroll-down-effect 1.5s infinite;
+}
+.reward-main {
+    -webkit-animation: donate_effcet 0.3s 0.1s ease both;
+    -moz-animation: donate_effcet 0.3s 0.1s ease both;
+    -o-animation: donate_effcet 0.3s 0.1s ease both;
+    -ms-animation: donate_effcet 0.3s 0.1s ease both;
+    animation: donate_effcet 0.3s 0.1s ease both;
+}
+@-moz-keyframes scroll-down-effect {
+    0% {
+        top: 0;
+        opacity: 0.4;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+        filter: alpha(opacity=40);
+    }
+    50% {
+        top: -16px;
+        opacity: 1;
+        -ms-filter: none;
+        filter: none;
+    }
+    100% {
+        top: 0;
+        opacity: 0.4;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+        filter: alpha(opacity=40);
+    }
+}
+@-webkit-keyframes scroll-down-effect {
+    0% {
+        top: 0;
+        opacity: 0.4;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+        filter: alpha(opacity=40);
+    }
+    50% {
+        top: -16px;
+        opacity: 1;
+        -ms-filter: none;
+        filter: none;
+    }
+    100% {
+        top: 0;
+        opacity: 0.4;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+        filter: alpha(opacity=40);
+    }
+}
+@-o-keyframes scroll-down-effect {
+    0% {
+        top: 0;
+        opacity: 0.4;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+        filter: alpha(opacity=40);
+    }
+    50% {
+        top: -16px;
+        opacity: 1;
+        -ms-filter: none;
+        filter: none;
+    }
+    100% {
+        top: 0;
+        opacity: 0.4;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+        filter: alpha(opacity=40);
+    }
+}
+@keyframes scroll-down-effect {
+    0% {
+        top: 0;
+        opacity: 0.4;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+        filter: alpha(opacity=40);
+    }
+    50% {
+        top: -16px;
+        opacity: 1;
+        -ms-filter: none;
+        filter: none;
+    }
+    100% {
+        top: 0;
+        opacity: 0.4;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+        filter: alpha(opacity=40);
+    }
+}
+/* 文章顶部hr 剪刀*/
+hr {
+    position: relative;
+    margin: 2rem auto;
+    width: calc(100% - 4px);
+    border: 2px dashed #a4d8fa;
+    background: #fff;
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+}
+
+hr:before {
+    position: absolute;
+    top: -10px;
+    left: 5%;
+    z-index: 1;
+    color: #49b1f5;
+    content: "💨";
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: 20px;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+hr:hover::before{
+    left: 95%;
+}
+/* 动态背景*/
+body #bg{
+    position: absolute;
+    overflow: hidden;
+}
+body #bg canvas{
+    position: absolute;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar-thumb {
+    background-color: #26a69a;
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .4) 75%, transparent 75%, transparent);
+    border-radius: 3em;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ffcacaff;
+    border-radius: 3em;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 15px;
+}
+
+/* 背景图片 */
+/* footer又拍云logo*/
+.youpaiyunlogo {
+    height: 26px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+/*直达评论按钮样式*/
+.comment-scroll {
+    position: fixed;
+    right: 15px;
+    bottom: 150px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+}
+
+.comment-scroll .btn-floating {
+    background: linear-gradient(to bottom right, #FF9999 0%, #ff6666 100%);
+    width: 38px;
+    height: 38px;
+}
+
+.comment-scroll .btn-floating i {
+    line-height: 0;
+    font-size: 1.48rem;
+}
+
+/* 添加背景像素纹*/
+.bg-cover::before {
+    background-image: url('/medias/detail/grid.png');
+}
+
+/* 添加字体*/
+body {
+    background-image: url('/medias/detail/background.png');
+    font-family: 'Architects Daughter', cursive !important;
+    font-weight: 900;
+}
+
+/*@font-face {*/
+/*    font-family: 'myfont';*/
+/*    src:url('../font/islu.ttf')*/
+/*}*/
+
+/* 上下页按钮修改*/
+.btn-floating.btn-large {
+    width: 38px;
+    height: 38px;
+}
+
+.btn-floating.btn-large i {
+    font-size: 1.3rem;
+    line-height: 38px;
+}
+
+
+/*.ewm{*/
+/*    position: absolute;*/
+/*    width: 200px;*/
+/*    height: 200px;*/
+/*    background-color: red;*/
+/*}*/
+/* 目录按钮样式修改 */
+#floating-toc-btn {
+    bottom: 200px !important;
+}
+
+/* 返回顶部按钮样式 */
+.btn-large {
+    line-height: 42px !important;
+}
+
+/* 标签外挂样式 */
+.uk-alert {
+    margin: 0 50px 15px 40px;
+    padding: 10px 50px 10px 40px;
+    background: #ebf7fd;
+    color: #2d7091;
+    border: 1px solid rgba(45, 112, 145, 0.3);
+    border-radius: 4px;
+    text-shadow: 0 1px 0 #ffffff;
+}
+
+.uk-alert-success {
+    background: #e8ece2;
+    color: #659f13;
+    border-left: 6px solid rgb(120, 199, 9);
+    font-weight: 600;
+    padding-left: 10px;
+}
+
+.uk-alert-warning {
+    background: #fff1f0;
+    color: rgb(73, 59, 156);
+    border-left: 6px solid rgba(83, 27, 184, 0.3);
+    font-weight: 600;
+    padding-left: 10px;
+}
+
+.uk-alert-danger {
+    background: #f8f8f6;
+    color: #eb360d;
+    border-left: 6px solid #eb360d;
+    font-weight: 600;
+    padding-left: 10px;
+}
+/*解决不蒜子冲突*/
+#busuanzi_container_site_uv,#busuanzi_container_site_pv,#busuanzi_value_site_pv{
+    display: inline-block !important;
+}

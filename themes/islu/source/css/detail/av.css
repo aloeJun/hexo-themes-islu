@@ -1,0 +1,44 @@
+.about-cover{height:110vh;background-image:url('/medias/banner/av.jpg') !important}
+/*.bg-cover {*/
+/*    background-image: url("/medias/banner/av.webp")!important;*/
+/*}*/
+
+.musis > div {
+    margin-bottom: 60px;
+}
+.aplayer {
+    border-radius: 8px!important;
+}
+.comment-scroll {
+    bottom: 93px;
+}
+.v[data-class=v] .vcards {
+    display: none;
+}
+.musis div p {
+    font-family: 'Architects Daughter', cursive;
+    font-size: 18px;
+}
+
+.musictitle {
+    font-family: 'Architects Daughter', cursive;
+    font-size: 20px;
+    margin-bottom: 0px!important;
+}
+body.dark .musictitle {
+    color: rgba(255, 255, 255, 0.6);
+}
+.musiclink {
+    margin-bottom: 0px!important;
+}
+.musiclink a {
+    margin-bottom: 15px;
+    display: inline-block;
+    color: rgba(0,0,0,0.87);
+}
+/* 修改小屏幕下logo文字样式. */
+@media only screen and (max-width: 600px) {
+    .about-cover {
+        height: 64vh;
+    }
+}

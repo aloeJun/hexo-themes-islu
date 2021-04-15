@@ -1,0 +1,37 @@
+<link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for('/css/detail/valine.css') %>">
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        📣
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+<%- partial('_partial/back-comment.ejs') %>
+<script src="<%- theme.jsDelivr.url %><%- url_for('/libs/valine/av-min.js') %>"></script>
+<script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.valine) %>"></script>
+<script>
+    let metaPlaceholder = <%-  JSON.stringify(theme.valine.metaPlaceholder) %> ;
+    //这里要换行
+    new Valine({
+        el: '#vcomments',
+        appId: '<%- theme.valine.appId %>',
+        appKey: '<%- theme.valine.appKey %>',
+        notify: '<%- theme.valine.notify %>' === 'true',
+        verify: '<%- theme.valine.verify %>' === 'true',
+        visitor: '<%- theme.valine.visitor %>' === 'true',
+        avatar: '<%- theme.valine.avatar %>',
+        pageSize: '<%- theme.valine.pageSize %>',
+        lang: '<%- theme.valine.lang %>',
+        placeholder: '<%= theme.valine.placeholder %>',
+        meta: <%- '["' + theme.valine.guest_info.join('", "') + '"]' %>,
+        recordIP: '<%- theme.valine.recordIP %>' === 'true',
+        enableQQ: '<%- theme.valine.avatar %>',
+        requiredFields: <%- '["' + theme.valine.master.join('", "') + '"]' %>,
+        master: <%- '["' + theme.valine.master.join('", "') + '"]' %>,
+        friends: <%- '["' + theme.valine.friends.join('", "') + '"]' %>,
+        tagMeta: <%- '["' + theme.valine.tagMeta.join('", "') + '"]' %>,
+        metaPlaceholder: metaPlaceholder,
+
+    });
+</script>

@@ -1,0 +1,83 @@
+<link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for('/css/detail/rewardModal.css') %>">
+<%- partial('_partial/bg-cover') %>
+<main class="content" style="min-height: 557px;">
+    <div class="container">
+        <div class="card">
+            <div class="card-content">
+                <div class="swbk">
+                    <div class="label" style="color: rgb(178, 143, 206);">
+                        <span>可以给博主买个馒头吃吗</span></div>
+                    <p>"维护博客不易，憨憨叹气，可以给博主买个馒头吃吗，卟卟 ~ "
+                        <br/>
+                        路人甲：” 哎，博主好可怜，一定支持一下 ~ “
+                        <br/>
+                        路人乙：“ 个人博客已经像恐龙那样灭绝，我觉得应该保护一下。”
+                    </p>
+                </div>
+                <!-- 二维码模块 -->
+                <div class="swbk">
+                    <div class="label" style="color: rgb(134, 193, 102);">
+                        <span>支付宝（左），微信（右）</span></div>
+                    <p>
+                        <!-- 相机图片展示 -->
+                    </p>
+                    <div class="xiangjipicss col s12 m6 l4">
+                        <img src="<%- theme.jsDelivr.url %><%- url_for('/medias/reward/alipay.png') %>"
+                             class="xiangjipic" title="支付宝，谢谢支持" alt="支付宝，谢谢支持">
+                        <img src="/medias/detail/rewardModal.jpg" class="xiangjipic"
+                             title="你资助博主的样子真好看，哈哈哈" alt="谢谢支持">
+                        <img src="<%- theme.jsDelivr.url %><%- url_for('/medias/reward/wechat.png') %>"
+                             class="xiangjipic" title="微信，谢谢支持" alt="微信，谢谢支持">
+                    </div>
+                    <p></p>
+                </div>
+
+                <div class="swbk">
+                    <div class="label" style="color: rgb(251, 150, 110);">
+                        <span>打赏支持记录</span></div>
+                    <p>
+                        " 打赏规则：1 软妹币 = 100 糖果🍬 （打赏时可在支付页面填写自己的网址，博客名，备注信息哦，再次感谢支持） "
+                    </p>
+                </div>
+                <!-- 打赏表格模块 -->
+                <table class="dashang">
+                    <tbody>
+                    <tr>
+                        <th>时间</th>
+                        <th>人物</th>
+                        <th>糖果数🍬</th>
+                        <th>次数</th>
+                        <th>截图</th>
+                        <th>备注</th>
+                    </tr>
+                    <!-- 以下每一个tr标签代表一个打赏者信息 -->
+                    <% if (site.data && site.data.rewards) { %>
+                        <% var rewards = site.data.rewards; %>
+                        <% for (var i = 0; i< rewards.length; i++) { %>
+                            <% var reward = rewards[i]; %>
+                            <tr>
+                                <td class="Hotpink">
+                                    <%= reward.date %>
+                                </td>
+                                <td>
+                                    <a href="<%- url_for(reward.url) %>" target="_blank"><%= reward.name %></a>
+                                </td>
+                                <td><%= reward.money %> x 🍬</td>
+                                <td><%= reward.count %></td>
+                                <td>
+                                    <a href="<%- url_for(reward.img) %>" target="_blank"><%= reward.type %></a>
+                                </td>
+                                <td class="Hotpink">
+                                    📢 <%= reward.contact %>
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <!-- 评论模块 -->
+            <%- partial('_partial/valine') %>
+        </div>
+    </div>
+</main>

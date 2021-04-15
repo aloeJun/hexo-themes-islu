@@ -1,0 +1,499 @@
+<link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for('/css/detail/time.css') %>">
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+<%- partial('_partial/bg-cover') %>
+    <div class="container">
+        <div class="card">
+            <div class="card-content">
+                <div class="tag-title center-align">
+                    <div class="miaoshus">
+                        <div class="title center-align">“ Ticktack 滴滴答答~ ”</div>
+                        “ 人生几何，九百月矣，深深的话，浅浅的说 ”
+                    </div>
+                    <hr>
+
+                    <!-- 计算时间模块 -->
+                    <div class="wrap">
+                        <p>“ 人生只有 900 余月</p>
+                        <p>过去的，是回忆</p>
+                        <p>淡淡的约定，浅浅的留影 ”</p>
+                        <div><canvas class="myLife" width="300px" height="300px"></canvas></div>
+                        <p>“ 截至此刻，仅剩 '<span class="im0now"></span><span style="color: #e96900;font-size: 20px;">%</span>' 掌握在自己的手中</p>
+                        <p>幸运和安逸还是留给后面的人生吧，我想趁着有梦，豁出一切。 ”</p>
+                        <script>
+                            var birthday=new Date(2002,5,30);
+                            var live=(new Date-birthday)/2592000000;
+                            var range=[0,live-1];
+                            for(var i=0;30>i;i++){
+                                for(var j=0;30>j;j++){
+                                    var current=30*i+j,
+                                        canvas=document.getElementsByClassName("myLife")[0],
+                                        ctx=canvas.getContext("2d");
+                                    current>=range[0]&&current<=range[1]?ctx.fillStyle="#ccc":ctx.fillStyle="#e96900",
+                                        ctx.fillRect(10*j+1,10*i+1,8,8),ctx.strokeStyle="#000",
+                                        ctx.lineWidth=1,
+                                        ctx.strokeRect(10*j,10*i,10,10)}}
+                            setInterval(function(){if($("span").hasClass("im0now"))
+                                {
+                                    document.getElementsByClassName("im0now")[0].innerHTML=(100-(new Date-birthday)/2592000000/9).toFixed(9)}}
+                                ,300);
+                        </script>
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+
+                <div class="biaotis">
+                    <span>时间从来不语，只在悄然间流逝。</span>
+
+                </div>
+
+                <div class="de">
+
+                    <div class="jt">
+                        <div class="dyy">
+                            今天
+                        </div>
+                        <div class="dee">
+                            <div class="jdt">
+                                <div class="jdt_son" style="width: 52.3414%;">&nbsp;</div>
+                            </div>
+                        </div>
+                        <div class="dss">512%</div>
+                    </div>
+
+                    <div class="bz">
+                        <div class="dyy">
+                            本周
+                        </div>
+                        <div class="dee">
+                            <div class="jdt">
+                                <div class="jdt_son" style="width: 78.9059%;">&nbsp;</div>
+                            </div>
+                        </div>
+                        <div class="dss">79%</div>
+                    </div>
+
+                    <div class="by">
+                        <div class="dyy">
+                            本月
+                        </div>
+                        <div class="dee">
+                            <div class="jdt">
+                                <div class="jdt_son" style="width: 58.5879%;">&nbsp;</div>
+                            </div>
+                        </div>
+                        <div class="dss">59%</div>
+                    </div>
+
+                    <div class="jn">
+                        <div class="dyy">
+                            今年
+                        </div>
+                        <div class="dee">
+                            <div class="jdt">
+                                <div class="jdt_son" style="width: 97.2357%;">&nbsp;</div>
+                            </div>
+                        </div>
+                        <div class="dss">97%</div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <script>
+
+                // 人生进度条
+                function Progress_time() {
+                    var mydate = new Date();
+                    var nian = mydate.getFullYear();
+                    var yue = mydate.getMonth() + 1;
+                    var ri = mydate.getDate();
+
+                    // 计算出今天的百分比
+                    var jt_a = ((mydate.getHours() * 3600) + (mydate.getMinutes() * 60) + mydate.getSeconds()) / 864;
+                    var jt = jt_a + '%';
+                    $(".jt .dss").text(parseFloat(jt.replace("%", "")).toFixed(0) + '%');
+
+                    // 计算出本周的百分比
+                    var bz = null;
+                    if (mydate.getDay() == 0) {
+                        bz = (6 + jt_a / 100) / 0.07 + '%';
+                    } else {
+                        bz = ((mydate.getDay() - 1) + jt_a / 100) / 0.07 + '%'
+                    }
+                    $(".bz .dss").text(parseFloat(bz.replace("%", "")).toFixed(0) + '%');
+
+                    // 计算出当月共有多少天（方便下面调用）
+                    function yue_s(z) {
+                        if (z == 1 || z == 3 || z == 5 || z == 7 || z == 8 || z == 10 || z == 12) {
+                            return 31;
+                        } else if (z != 2) {
+                            return 30;
+                        } else {
+                            if (nian / 4 == 0) {
+                                return 29;
+                            } else {
+                                return 28;
+                            }
+                        }
+                    }
+
+                    // 计算出本月的百分比
+                    by = ((ri-1) / yue_s(yue))*100+jt_a/100;
+                    by_viw = by + '%';
+                    $(".by .dss").text(parseFloat(by_viw.replace("%", "")).toFixed(0) + '%');
+
+                    // 计算出：从今年1月1号，直到现在共有多少天
+                    var jn = 0;
+                    var dayue = yue;
+                    for (i = 1; i < dayue + 1; ++i) {
+                        if (i >= 3) {
+                            if (i != dayue) {
+                                jn = jn + yue_s(i);
+                            } else {
+                                jn = jn + ri;
+                            }
+                        } else if (i == 2) {
+                            if (i != dayue) {
+                                jn = jn + yue_s(2);
+                            } else {
+                                jn = jn + ri;
+                            }
+                        } else if (i == 1) {
+                            if (i != dayue) {
+                                jn = 31;
+                            } else {
+                                jn = ri;
+                            }
+                        }
+                    }
+
+                    // 计算出今年的百分比
+                    var runi = 3.65;
+                    if (yue_s(2) == 29) {
+                        runi = 3.66
+                    }
+                    jn = (jn / runi + jt_a / 100) + '%';
+                    $(".jn .dss").text(parseFloat(jn.replace("%", "")).toFixed(0) + '%');
+
+
+
+                    // 把上面计算出的数据，展示在页面上
+                    $(".jt .dee .jdt .jdt_son").animate({
+                        width: jt
+                    }, 2000);
+
+                    $(".bz .dee .jdt .jdt_son").animate({
+                        width: bz
+                    }, 2000);
+
+                    $(".by .dee .jdt .jdt_son").animate({
+                        width: by_viw
+                    }, 2000);
+
+                    $(".jn .dee .jdt .jdt_son").animate({
+                        width: jn
+                    }, 2000);
+
+
+
+                }
+                Progress_time();
+
+
+
+            </script>
+            <div class="jzb">
+                <div class="clock">
+                    <div class="hour">
+                        <div class="hr"></div>
+                    </div>
+
+                    <div class="min">
+                        <div class="mn"></div>
+                    </div>
+
+                    <div class="sec">
+                        <div class="sc"></div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                // 获取几个时钟的dom
+                let hr = document.querySelector(".hr");
+                let mn = document.querySelector(".mn");
+                let sc = document.querySelector(".sc");
+                let time = document.querySelector(".time_wrap1");
+                //根据当前时间初始化表盘时钟
+                let date = new Date();
+                let hour = date.getHours();
+                let min = date.getMinutes();
+                let sec = date.getSeconds();
+                let n = sec;
+                setInterval(() => {
+                    hour = date.getHours();
+                    hr.style.transform = `rotateZ(${hour * 30 + min / 2}deg)`;
+                    mn.style.transform = `rotateZ(${min * 6}deg)`;
+                    sc.style.transform = `rotateZ(${sec * 6}deg)`;
+
+                    n++;
+                    min = min + parseInt(i / 60);
+                    sec++;
+                    if (n === 60) i = 0;
+
+                    let startTime = new Date("2019-9-1"); // 开始时间
+                    let endTime = new Date(); // 结束时间
+                    let usedTime = endTime - startTime; // 相差的毫秒数
+                    let days = Math.floor(usedTime / (24 * 3600 * 1000)); // 计算出天数
+                    let leavel = usedTime % (24 * 3600 * 1000); // 计算天数后剩余的时间
+                    let hours = Math.floor(leavel / (3600 * 1000)); // 计算剩余的小时数
+                    let leavel2 = leavel % (3600 * 1000); // 计算剩余小时后剩余的毫秒数
+                    let minutes = Math.floor(leavel2 / (60 * 1000)); // 计算剩余的分钟数
+                    let level3 = leavel2 - minutes * 60 * 1000;
+                    let seconds = Math.floor(level3 / 1000);
+                }, 1000);
+            </script>
+
+            <br>
+
+            <div class="biaotis">
+                <span>距离</span>
+                <span class="zhuti">2022</span>
+                <span>仅有</span>
+            </div>
+            <div id="CountMsg" class="HotDate">
+                <span id="t_d">00天</span>
+                <span id="t_h">00时</span>
+                <span id="t_m">00分</span>
+                <span id="t_s">00秒</span>
+            </div>
+            <script type="text/javascript">
+                function getRTime(){
+                    var EndTime = new Date('2022/01/01 00:00:00'); //截止时间
+                    var NowTime = new Date();
+                    var t = EndTime.getTime() - NowTime.getTime();
+
+                    //累减
+                    // var d=Math.floor(t/1000/60/60/24);
+                    // t-=d*(1000*60*60*24);
+                    // var h=Math.floor(t/1000/60/60);
+                    // t-=h*60*60*1000;
+                    // var m=Math.floor(t/1000/60);
+                    // t-=m*60*1000;
+                    // var s=Math.floor(t/1000);
+
+                    //累加
+                    var d=Math.floor(t/1000/60/60/24);
+                    var h=Math.floor(t/1000/60/60%24);
+                    var m=Math.floor(t/1000/60%60);
+                    var s=Math.floor(t/1000%60);
+
+                    document.getElementById("t_d").innerHTML = d + "天";
+                    document.getElementById("t_h").innerHTML = h + "时";
+                    document.getElementById("t_m").innerHTML = m + "分";
+                    document.getElementById("t_s").innerHTML = s + "秒";
+                }
+                setInterval(getRTime,1000);
+            </script>
+
+        </div>
+        <div class="main card">
+            <div class="card-content">
+                <p class="center">没有目标的人生，亦犹如行尸走肉</p>
+                <div class="note info">
+                    公告：这里可作为各位访客的一个心愿单模块，<br>
+                    1. 可以在下方写下自己今年或者近期的愿望或者flag，<br>
+                    2. 例如留下一个flag到下一年或者下一周再次来打卡，<br>
+                    3. 欢迎大家来留下自己的todolist哦 ~ ，<br>
+                    4. 若有什么建议或者问题请来博主主页站点的留言板留言哦~<br>
+                    (注意：此模块使用localstorage，所以键入的内容只存在于你自己的设备上，其他人访问该网页是看不到你的内容的，私密性强，所以可放心键入清单内容。望周知~ 桌面端体验更佳哦~)
+                </div>
+
+                <h3 class="big-title">添加任务：</h3>
+                <input
+                        placeholder="例如：下一个十年之约，我们还在这里，各自安好。 （提示：回车即可添加任务，双击列表标题即可编辑）"
+                        class="task-input"
+                        type="text"
+                        v-on:keyup.enter="enterFn"
+                        v-model="todo"
+                />
+                <ul class="task-count">
+                    <li>{{unComplete}}个任务未完成</li>
+                    <li class="action">
+                        <a :class="{active:visibility!=='unCompleted'&&visibility!=='completed'}" href="#all">全部</a>
+                        <a :class="{active:visibility==='unCompleted'}" href="#unCompleted">未完成</a>
+                        <a :class="{active:visibility==='completed'}" href="#completed">已完成</a>
+                    </li>
+                </ul>
+                <h3 class="big-title">任务列表：</h3>
+                <div class="tasks">
+
+                    <span class="no-task-tip" v-show="!list.length">还没有添加任何任务</span>
+                    <ul class="todo-list" v-show="list.length">
+                        <li class="todo"
+                            v-for="item in filterData"
+                            v-bind:class="{completed:item.isComplete,editing:item===edtorTodos}"
+                        >
+                            <div class="view">
+                                <input class="toggle"
+                                       type="checkbox"
+                                       v-model="item.isComplete"
+                                />
+                                <label @dblclick="edtorTodo(item)">{{item.title}}</label>
+                                <button
+                                        class="destroy"
+                                        @click="delFn(item)"
+                                ></button>
+                                <i class="fabutime"></i>
+                            </div>
+                            <input
+                                    class="edit"
+                                    type="text"
+                                    v-focus="edtorTodos===item"
+                                    v-model="item.title"
+                                    @blur="edtoEnd(item)"
+                                    @keyup.enter="edtoEnd(item)"
+                                    @keyup.esc="cancelEdit(item)"
+                            />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="daodile">呐，已经到底啦，去上方留下自己的todolist吧~</div>
+        <!-- <script>
+            var date = new Date();
+            var fabutime = date.toLocaleString( ); //获取日期与时间
+            document.getElementsByClassName("fabutime")[0].innerHTML= fabutime;
+        </script> -->
+
+        <script>
+            //存取localStorage中的数据
+            var store = {
+                save(key,value){
+                    window.localStorage.setItem(key,JSON.stringify(value));
+                },
+                fetch(key){
+                    return JSON.parse(window.localStorage.getItem(key))||[];
+                }
+            }
+            //list取出所有的值
+            var list = store.fetch("storeData");
+
+            var vm = new Vue({
+                el:".main",
+                data:{
+                    list,
+                    todo:'',
+                    edtorTodos:'',//记录正在编辑的数据,
+                    beforeTitle:"",//记录正在编辑的数据的title
+                    visibility:"all"//通过这个属性值的变化对数据进行筛选
+                },
+                watch:{
+                    //下面的这种方法是浅监控
+                    /*list:function(){//监控list这个属性，当这个属性对应的值发生变化就会执行函数
+                        store.save("storeData",this.list);
+                    }*/
+
+                    //下面的是深度监控
+                    list:{
+                        handler:function(){
+                            store.save("storeData",this.list);
+                        },
+                        deep:true
+                    }
+
+                },
+
+                methods:{
+                    enterFn(ev){//添加任务
+                        //向list中添加一项任务
+                        //事件处理函数中的this指向的是当前这个根实例
+                        if(this.todo==""){return;}
+                        this.list.push({
+                            title:this.todo,
+                            isComplete:false
+                        });
+                        this.todo = "";
+
+                    },
+                    delFn(item){//删除任务
+                        var index = this.list.indexOf(item);
+                        this.list.splice(index,1)
+                    },
+                    edtorTodo(item){//编辑任务
+                        //编辑任务的时候记录编辑之前的值
+                        this.beforeTitle = item.title;
+                        this.edtorTodos = item;
+                    },
+                    edtoEnd(item){//编辑完成
+                        this.edtorTodos="";
+                        // this.cancelEdit = this.edtorTodos;
+                    },
+                    cancelEdit(item){//取消编辑
+                        item.title = this.beforeTitle;
+                        this.beforeTitle = '';
+                        this.edtorTodos='';
+                    }
+                },
+                directives:{
+                    "focus":{
+                        update(el,binding){
+                            if(binding.value){
+                                el.focus();
+                            }
+                        }
+                    }
+                },
+                computed:{
+                    unComplete(){
+                        return  this.list.filter(item=>{
+                            return !item.isComplete
+                        }).length
+                    },
+                    filterData(){
+                        //过滤的时候有三种情况 all completed unCompleted
+                        var filter = {
+                            all:function(list){
+                                return list;
+                            },
+                            completed:function(list){
+                                return list.filter(item=>{
+                                    return item.isComplete;
+                                })
+                            },
+                            unCompleted:function(list){
+                                return list.filter(item=>{
+                                    return !item.isComplete;
+                                })
+                            }
+                        }
+                        //如果找到了过滤函数，就返回过滤后的数据，如果没有找到就返回所有的数据
+                        return filter[this.visibility]?filter[this.visibility](list):list;
+                    }
+
+                }
+            });
+            function hashFn(){
+                var hash = window.location.hash.slice(1);
+                vm.visibility = hash;
+            }
+            hashFn();
+            window.addEventListener('hashchange',hashFn);
+        </script>
+    </div>
+
+</div>
+

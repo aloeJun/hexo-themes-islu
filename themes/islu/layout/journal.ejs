@@ -1,0 +1,157 @@
+<link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for('/css/detail/journal.css') %>">
+<%- partial('_partial/bg-cover') %>
+<main class="content">
+    <div class="container">
+        <div class="card">
+            <div class="card-content">
+                <div class="tag-title center-align">
+                    <div class="journal">
+                        <div class="title center-align">“ 网站日志 ”</div>
+                    </div>
+                    <div class="box">
+                        <div class="tit"></div>
+                        <div class="min">
+                            <div class="line"></div>
+                            <div class="vas">
+                                <% if (site.data && site.data.journal) { %>
+                                    <% var journals = site.data.journal; %>
+                                    <% for (var i = 0, len = journals.length; i < len; i++) { %>
+                                        <% var journal = journals[i]; %>
+                                        <div class="list">
+                                            <div class="dian"></div>
+                                            <div class="list_box">
+                                                <div class="hx"></div>
+                                                <div class="list_nr">
+                                                    <p class="date" style="margin-right: 20px;"><%= journal.date %></p>
+                                                    <div class="nr_tit">
+                                                        <a href="javascript:;"># <%= journal.title %></a>
+                                                    </div>
+                                                    <div class="nr_nr">
+                                                        <%= journal.text %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <% } %>
+                                <% } %>
+
+                                <script>
+                                    $(document).ready(_ => {
+                                        let list_box = $(".list_box");
+                                        let hx = $(".hx");
+                                        let list_nr = $(".list_nr");
+                                        let date = $(".date");
+                                        let arr_color = ['#118DF0', '#8bc24c', '#FF5F5F', '#515bd4', '#F7B32D'];
+                                        let flag = 0;
+                                        let wy = $("body").width();
+
+                                        function pc() {
+                                            if (wy <= 700) {
+                                                window.history.go(0);
+                                            }
+                                            if ($("body").width() < 1240) {
+                                                $(".top img").css("right", "5px");
+                                            } else {
+                                                $(".top img").css("right", "-22px");
+                                            }
+                                            $(".top").css("display", "block");
+                                            for (let index = 0; index < list_box.length; index++) {
+                                                $(list_nr[index]).css("background", arr_color[flag]);
+                                                if (flag == 4) {
+                                                    flag = 0;
+                                                } else {
+                                                    flag += 1;
+                                                }
+                                                if (index % 2 != 0) {
+                                                    let a = $(list_box[index]);
+                                                    let b = $(hx[index]);
+                                                    let c = $(list_nr[index]);
+                                                    let d = $(date[index]);
+                                                    a.css({
+                                                        "float": "right"
+                                                    });
+                                                    b.css({
+                                                        "float": "left"
+                                                    })
+                                                    c.css({
+                                                        "float": "right",
+                                                        "margin-right": "19%"
+                                                    })
+                                                    d.css({
+                                                        "right": 'unset',
+                                                        "left": "12%"
+                                                    })
+                                                }
+                                            }
+                                            $(".list").slideDown(800);
+                                        }
+
+                                        function move() {
+                                            if (wy > 700) {
+                                                window.history.go(0);
+                                            }
+                                            for (let index = 0; index < list_box.length; index++) {
+                                                $(list_nr[index]).css("background", arr_color[flag]);
+                                                if (flag == 4) {
+                                                    flag = 0;
+                                                } else {
+                                                    flag += 1;
+                                                }
+                                            }
+                                            $(".list").css("margin-top", "60px");
+                                            $(".line").css("left", "10%");
+                                            $(".dian").css("left", "10%");
+                                            $(".list_box").css("width", "100%");
+                                            $(".hx").css("float", "left");
+                                            $(".list_nr").css({
+                                                "max-height": "auto",
+                                                "line-height": "17px",
+                                                "font-size": "12px"
+                                            });
+                                            $($(".list")['0']).css("margin-top", "20px");
+                                            $(".list").slideDown(800);
+
+                                        }
+
+                                        function win() {
+                                            let width = $("body").width();
+                                            $(".line").slideDown(800, _ => {
+                                                if (width <= 700) {
+                                                    move();
+                                                } else {
+                                                    pc();
+                                                }
+                                            });
+                                        }
+
+                                        $(window).resize(win);
+                                        win();
+                                    });
+                                    // $(".nr_nr").click((e) => {
+
+                                    //     if ($("body").width() <= 700) {
+                                    //         alert(e.delegateTarget.innerText);
+                                    //     }
+
+                                    // })
+                                    $(".top img").click(_ => {
+                                        $(document).scrollTop(0);
+                                    })
+                                    var time = new Date();
+                                    var time_new = time.getTime();
+                                    var str = '2019-03-01 12:14:46';
+                                    str = str.replace(/-/g, '/');
+                                    var date = new Date(str);
+                                    var time_old = date.getTime();
+                                    var cha = (time_new - time_old) / 86400000;
+                                    console.log('本站已运行' + Math.floor(cha) + '天');
+                                    // js部分的代码，主要就是拿来兼容移动端和PC端
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
