@@ -1,5 +1,5 @@
 # hexo-theme-islu
-基于matery主题魔改的hexo主题博客源码
+hexo主题博客源码
 1. 下载主题
 2. 运行`npm i`自动安装所需依赖
 3. 更改个人信息及所需配置
