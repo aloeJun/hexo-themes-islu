@@ -1,4 +1,7 @@
 # hexo-theme-islu
+
+[![Join the chat at https://gitter.im/hexo-themes-islu/community](https://badges.gitter.im/hexo-themes-islu/community.svg)](https://gitter.im/hexo-themes-islu/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ## 安装hexo框架
   `npm install hexo-cli -g`
   
