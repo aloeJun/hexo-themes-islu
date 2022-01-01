@@ -1,6 +1,7 @@
 # hexo-theme-Matery-pro
 
 此主题源自于 [https://github.com/blinkfox](blinkfox闪烁之狐) 的的 `Matery`主题魔改
+
 此库预览 [https://blog.islu.cn](模板演示)
 
 ## 新特性
