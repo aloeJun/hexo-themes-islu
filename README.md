@@ -41,7 +41,7 @@
 当然你也可以在你的 `themes` 文件夹下使用 `git clone` 命令来下载:
 
 ```bash
-git clone https://github.com/ialoe/hexo-theme-islu.git
+git clone https://github.com/ialoe/hexo-themes-matery-pro
 ```
 
 ## 配置
