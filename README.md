@@ -48,7 +48,7 @@ git clone https://github.com/ialoe/hexo-themes-matery-pro
 
 ### 切换主题
 
-修改 Hexo 根目录下的 `_config.yml` 的  `theme` 的值：`theme: hexo-theme-matery`
+修改 Hexo 根目录下的 `_config.yml` 的  `theme` 的值：`theme: hexo-themes-matery-pro`
 
 #### `_config.yml` 文件的其它修改建议:
 
