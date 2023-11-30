@@ -1,0 +1,2 @@
+/* Here is your custom css styles. */
+/* 深色模式按钮设置 */ #sma { background: #000; width: 38px; height: 38px; display: block; position: fixed; border-radius: 50%; right: 15px; bottom: 170px; padding-top: 15px; margin-bottom: 0; z-index: 998; cursor: pointer; } #sma .fa-moon-o { position: absolute; right: 8px; bottom: 8px; font-size: 1.48rem!important; } #sma .fa-lightbulb-o { position: absolute; right: 13px; bottom: 8px; font-size: 1.5rem!important; } .fa-moon-o:before { content: "\f186"; } .fa-comments:before { content: "\f086"; }

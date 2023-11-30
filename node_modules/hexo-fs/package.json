@@ -1,0 +1,46 @@
+{
+  "name": "hexo-fs",
+  "version": "3.1.0",
+  "description": "File system module for Hexo.",
+  "main": "lib/fs.js",
+  "scripts": {
+    "eslint": "eslint .",
+    "test": "mocha test/index.js",
+    "test-cov": "nyc npm run test"
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "files": [
+    "lib/fs.js"
+  ],
+  "repository": "hexojs/hexo-fs",
+  "homepage": "https://hexo.io/",
+  "keywords": [
+    "file",
+    "file system",
+    "fs",
+    "hexo"
+  ],
+  "author": "Tommy Chen <tommy351@gmail.com> (http://zespia.tw)",
+  "maintainers": [
+    "Abner Chou <hi@abnerchou.me> (http://abnerchou.me)"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "chokidar": "^3.0.0",
+    "graceful-fs": "^4.1.11",
+    "hexo-util": "^2.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^7.0.0",
+    "eslint-config-hexo": "^4.1.0",
+    "mocha": "^7.0.0",
+    "nyc": "^15.0.0"
+  },
+  "engines": {
+    "node": ">=10.13.0"
+  }
+}

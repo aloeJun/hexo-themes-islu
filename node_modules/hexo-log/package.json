@@ -1,0 +1,47 @@
+{
+  "name": "hexo-log",
+  "version": "3.2.0",
+  "description": "Logger for Hexo",
+  "main": "lib/log.js",
+  "scripts": {
+    "eslint": "eslint .",
+    "test": "mocha test/index.js",
+    "test-cov": "nyc --reporter=lcovonly npm test"
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "files": [
+    "lib/"
+  ],
+  "repository": "hexojs/hexo-log",
+  "homepage": "http://hexo.io/",
+  "keywords": [
+    "website",
+    "blog",
+    "cms",
+    "framework",
+    "hexo"
+  ],
+  "author": "Tommy Chen <tommy351@gmail.com> (http://zespia.tw)",
+  "maintainers": [
+    "Abner Chou <hi@abnerchou.me> (http://abnerchou.me)"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^8.2.0",
+    "eslint-config-hexo": "^5.0.0",
+    "mocha": "^10.0.0",
+    "nyc": "^15.0.0",
+    "rewire": "^5.0.0",
+    "sinon": "^13.0.1"
+  },
+  "engines": {
+    "node": ">=12.4.0"
+  },
+  "dependencies": {
+    "picocolors": "^1.0.0"
+  }
+}
