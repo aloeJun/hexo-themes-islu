@@ -484,6 +484,7 @@ libs:
   js:
     matery: /js/matery.js
     sc2tc: /js/tw_cn.js
+    pjax: /js/jquery.pjax.js
     jquery: /libs/jquery/jquery-3.6.0.min.js  #3.6.0 20211109
     materialize: /libs/materialize/materialize.min.js # 1.2.1 20230106
     masonry: /libs/masonry/masonry.pkgd.min.js # v4.0.0

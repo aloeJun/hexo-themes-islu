@@ -78,5 +78,9 @@
     <%- partial('_partial/main-style') %>
 
     <script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.jquery) %>"></script>
+    <script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.pjax) %>"></script>
+    <script>
+        $(document).pjax('a:not(a[target="_blank"])', '#pjax-container', {fragment: '#pjax-container', timeout: 8000});
+    </script>
 
 </head>
